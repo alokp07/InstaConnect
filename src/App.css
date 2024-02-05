@@ -1,38 +1,759 @@
-.App {
-  text-align: center;
-}
+  
+  /* Landing Page */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+  
+@media (max-width: 768px) {
+  .buttonDiv {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+  
+  .neonDiv{
+    margin-bottom: 5rem;
+  }
+
+  .neon-button::before{
+    display: none
+  }
+  
+}
+  
+  @import url('https://fonts.googleapis.com/css?family=Poppins');
+  
+  
+  *{
+    font-family: 'Kalam', sans-serif;
+  }
+  
+  :root{
+    --clr-neon: #04d9ff;
+    --clr-bg: #00051d;
+    --clr-txt: violet;
+  }
+  
+  
+  .landingDiv{
+    background: var(--clr-bg);
+  }
+  
+  .modalbody{
+    background-color: #0b0b2f;
+  }
+  
+  .buttonDiv{
+    justify-content: space-evenly;
+  }
+
+  .proTitle{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-family: 'Kalam';
+    color: white;
+    font-size: 3em;
+  }
+
+  .proTitle span{
+    color: red;
+    font-family: 'Kalam';
+  }
+  
+  /* Container css */
+  
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container button:hover{
+    cursor: pointer;
+  }
+  
+  .container button{
+    position: relative;
+    width: 350px;
+    height: 160px;
+    display:inline-block;
+    background: #fff;
+    margin: 20px;
+    border: 0;
+  }
+  .container button:before,
+  .container button:after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #f00;
+  transition: 0.5s;
+  }
+  
+  .container button:nth-child(1):before,
+  .container button:nth-child(1):after
+  {
+  background: linear-gradient(45deg,red,pink,blue,orange);
+  }
+  
+  .container button:nth-child(2):before,
+  .container button:nth-child(2):after
+  {
+  background: linear-gradient(45deg,brown,yellow,blue,green);
+  }
+  
+  
+  .container button:hover:before{
+    inset: -3px;
+  }
+  .container button:hover:after{
+    inset: -3px;
+    filter: blur(10px);
+  }
+  
+  
+  
+  .container button span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: #0b0b2f;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color:#fff;
+    border: 2px solid #303050;
+    overflow: hidden;
+  }
+  .container button span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 163, 163, 0.154);
+    transform: skew(25deg);
+  }
+  
+  
+  /* Neon button */
+  
+  .neon-button{
+    font-size: 5rem;
+    font-family: "Kalam";
+    text-decoration: none;
+    border: .1em solid var(--clr-neon);
+    color: violet;
+    padding: .25em 1em;
+    border-radius: .2em;
+    text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.363),
+    0 0 1em var(--clr-neon);
+    box-shadow: inset 0 0 .4em 0 var(--clr-neon),
+    0 0 .6em 0 var(--clr-neon);
+    z-index: 1;
+    background-color: transparent;
+  }
+  
+  .neon-button::before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(90deg, var(--clr-neon) 0%, var(--clr-txt) 50%, var(--clr-neon) 100%);
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    
+    transform: perspective(1em) rotateX(45deg) scale(.8, .31);
+    filter: blur(1em);
+    opacity: .7;
+  }
+  
+  .neon-button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;;
+    box-shadow: 0 0 2em .5em var(--clr-neon);
+    opacity: 0;
+    transition: 1s all;
+  }
+  
+  .neon-button:hover::after{
+    opacity: 1;
+  }
+  
+  .neon-button:hover{
+    cursor: pointer;
+  }
+  
+  /* Register Modal */
+  
+  .registerModal{
+    background: var(--clr-bg);
+  }
+  
+  .registerModal::before{
+    content: "";
+    position: absolute;
+    box-shadow: 0 0 2em .5em var(--clr-neon);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .7;
+    z-index: -1;
+  }
+  
+  .regInput{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--clr-neon);
+    outline: none;
+    color: var(--clr-neon);
+  }
+  
+  .inputDivs{
+    margin-bottom: 1em;
+  }
+  
+  
+  .custom-btn {
+    color: #fff;
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .btn-7 {
+    color: #21ebff;
+    line-height: 40px;
+    padding: 0;
+    border: none;
+  }
+  .btn-7 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-7:before,
+  .btn-7:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #21ebff;
+    box-shadow: 0 0 5px #21ebff;
+    transition: all 0.3s ease;
+  }
+  .btn-7:before{
+     height: 50%;
+     width: 2px;
+  }
+  .btn-7:after {
+    width: 20%;
+    height: 2px;
+  }
+  .btn-7:hover:before {
+    height: 100%;
+  }
+  .btn-7:hover:after {
+    width: 100%;
+  }
+  .btn-7 span:before,
+  .btn-7 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #21ebff;
+    box-shadow: 0 0 5px #21ebff;
+    transition: all 0.3s ease;
+  }
+  .btn-7 span:before {
+    width: 2px;
+    height: 50%;
+  }
+  .btn-7 span:after {
+    height: 2px;
+    width: 20%;
+  }
+  .btn-7 span:hover:before {
+    height: 100%;
+  }
+  .btn-7 span:hover:after {
+    width: 100%;
+  }
+
+
+/* Insta Connect */
+
+@media (max-width:994px){
+  .profileCol{
+    display: none;
+  }
+  .sidebar{
+    visibility: visible !important;
+  }
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.chatCol{
+  background-color: var(--clr-bg);
+}
+
+.profileCol{
+  background-color: rgba(25, 66, 143, 0.2);
+}
+
+
+.strangerProfileDiv{
+  overflow: hidden;
+  width: 5rem;
+  height: 5rem;
+  border-radius: .7em;
+  border: 1px solid darkorange;
+}
+
+.chatDiv{
+  position: relative;
+  height: 90%;
+}
+
+.sidebar{
+  width: 4rem;
+}
+
+.sidebarButton{
+  color: var(--clr-neon) !important;
+}
+
+.sidebarButton:hover{
+  border: 2px solid orange !important;
+}
+
+.chatDisplayDiv{
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(32, 30, 30);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.msgContainer{
+  width: fit-content;
+  padding-block: .3em;
+  padding-inline: .7em;
+  margin-bottom: .6em;
+  border-bottom-left-radius: 1em;
+  border-top-right-radius: 1em;
+  background-color: #0A1D56;
+  font-family: 'Kalam';
+  font-size: 1.3em;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.msgContainer1{
+  margin-left: auto;
+  width: fit-content;
+  padding-block: .3em;
+  padding-inline: .7em;
+  margin-bottom: .6em;
+  border-bottom-right-radius: 1em;
+  border-top-left-radius: 1em;
+ background-color: #7a37a6;
+  font-family: 'Kalam';
+  font-size: 1.3em;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.chatInputDiv{
+  height: 10%;
+}
+
+.messageInputBox{
+  width: 100%;
+  padding-right: 4.6em;
+  padding-block: .7em;
+  border-radius: .7em;
+  border: 1px solid var(--clr-neon);
+  background-color: transparent;
+  color: white;
+}
+
+.send-btn{
+  position: absolute;
+  right: 0;
+}
+
+.toggle-btn{
+  position: absolute;
+  top: 2%;
+  left: 12%;
+  border: 0;
+  background-color: transparent;
+  color: #04d9ff;
+}
+
+.toggle-close{
+  position: absolute;
+  top: 2%;
+  right: 4%;
+}
+
+
+/* loading */
+
+.loader {
+  bottom: 0;
+  left: 40%;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 35%;
+  z-index: 99999;
+  width: 25%;
+  height: 25%;
+}
+
+.loader-inner {
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+
+.loader-line-wrap {
+  animation: 
+  spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+;
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 100%;
+  width: 100px;
+}
+.loader-line {
+  border: 4px solid transparent;
+  border-radius: 100%;
+  box-sizing: border-box;
+  height: 100px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) .loader-line {
+  border-color: hsl(0, 80%, 60%);
+  height: 90px;
+  width: 90px;
+  top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+  border-color: hsl(60, 80%, 60%);
+  height: 76px;
+  width: 76px;
+  top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+  border-color: hsl(120, 80%, 60%);
+  height: 62px;
+  width: 62px;
+  top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+  border-color: hsl(180, 80%, 60%);
+  height: 48px;
+  width: 48px;
+  top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+  border-color: hsl(240, 80%, 60%);
+  height: 34px;
+  width: 34px;
+  top: 35px;
+}
+
+@keyframes spin {
+  0%, 15% {
+  transform: rotate(0);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
+/* Friends */
+
+
+.friendsChatContainer{
+  background-color: var(--clr-bg);
+}
+
+.search_frnds{
+  background-color: rgba(0, 0, 0, 0.19);
+  border: 1px solid var(--clr-neon);
+  box-shadow: 1px 1px 10px var(--clr-neon);
+  width: 90%;
+  height: 2.6em;
+  font-family: 'Kalam', cursive;
+  color: white;
+}
+
+.friend_btn{  
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+} 
+
+.friend_name{
+  font-family: 'Kalam', cursive;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.friends_side{
+  overflow: auto !important; 
+}
+
+#friend-btn:hover{
+  background: linear-gradient(to left, #0f0c29, #302b63, #24243e);
+  color: orange;
+}
+
+/* Edit Account details */
+
+.editRoot{
+  background-color: var(--clr-bg);
+}
+
+.editH2{
+  font-family: 'Kalam';
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.editRoot > div{
+  border: 1px solid white;
+  padding-block: 4rem;
+  padding-top: 4.5rem;
+  padding-inline: 3rem;
+  border-radius: .5em;
+  border-top-left-radius: 5em;
+  border-bottom-right-radius: 5em;
+}
+
+.editRoot div input{
+  width: 20rem;
+  padding-block: .6em;
+  padding-inline: .7em;
+  padding-inline-start: 1em;
+  margin-bottom: 1.5em;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid orange;
+  color: white;
+  font-family: 'Kalam';
+  font-size: 1.3em;
+}
+
+.editRoot div .btn{
+  border: 1px solid orange;
+  color: white;
+  font-family: "Kalam";
+  font-size: 1.1em;
+  padding-block: .5em;
+  padding-inline: 1.5em;
+}
+
+.editRoot div .btn:hover{
+  background-color: darkorange;
+  font-weight: bolder;
+}
+
+
+/* Manage friends */
+
+.mFriendsRoot{
+  background-color: var(--clr-bg);
+  overflow: auto;
+}
+
+.mFriendsRoot input{
+  width: 30%;
+  border: 1px solid var(--clr-neon);
+  border-radius: 1em;
+  font-family: 'Kalam';
+  font-size: 1.4em;
+  color: white;
+  padding-block: 0.3em;
+  padding-inline: 1em;
+  background-color: transparent;
+  box-shadow: 1px 1px 10px var(--clr-neon);
+}
+
+.mFriends{
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  width: 60%;
+  border-radius: 1em;
+}
+
+.mFriends h2{
+  font-family: "Kalam"; 
+  color: white;
+  z-index: 2;
+}
+
+.mFriends .btn{
+  height: 100%;
+  font-family: "Kalam";
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5em;
+  background-color:transparent;
+  border-radius: 1em;
+  border: 0;
+  z-index: 1;
+}
+
+.mFriends .btn::before{
+  content: "";
+  z-index: -9;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(120, 8, 8);
+  opacity: 0.4;
+  width: 15%;
+  height: 100%;
+  border-radius: .7em;
+  transition: all 0.6s;
+}
+
+.mFriends .btn:hover{
+  background-color: transparent;
+}
+
+.mFriends .btn:hover::before{
+  width: 100%;
+  opacity: 1;
+}
+
+.adminRoot{
+  background-color: var(--clr-bg);
+}
+
+.nav .nav-item a{
+  font-family: 'Kalam';
+  font-size: 1.3em;
+  color: white !important;
+}
+
+.tabContent div{
+  width: 60%;
+}
+
+/* notification */
+
+.reportDiv>div{
+  border: 1px solid var(--clr-neon);
+  padding-block-start: 3em;
+  padding-block-end: 2em;
+  padding-inline: 2.5em;
+  border-radius: 1em;
+  box-shadow: 1px 1px 10px var(--clr-neon);
+  min-width: 400px;
+}
+
+.reportDiv div input{
+   background-color: transparent;
+   border: 0;
+   border-bottom: 1px solid white;
+   border-radius: .6em;
+   padding-block: .2em;
+   padding-inline-start: 1em;
+   color: white;
+   font-family: "Kalam";
+   font-size: 1.5em;
+}
+
+.reportDiv div textarea{
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: .6em;
+  padding-block: .2em;
+  padding-inline: 1em;
+  padding-block: 1em;
+  color: white;
+  font-family: "Kalam";
+  font-size: 1.5em;
+}
+
+.reportDiv div .btn{
+    background-color: transparent;
+    border: 1px solid var(--clr-neon);
+    font-family: "Kalam";
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+.reportDiv div .btn:hover{
+  box-shadow: 0 0 2em .3em var(--clr-neon);
+}
+
+
+.reportModel div{
+  color: white;
+  background-color: #060f3f;
+}
+
+.reportModel p{
+  font-size: 1.3em;
 }
