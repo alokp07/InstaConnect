@@ -17,4 +17,4 @@ export const commonAPI = async(method,url,data,reqHeader)=>{
 
 
 //base url
-export const BASE_URL = 'http://localhost:4000'
+export const BASE_URL = 'https://insta-connect-server.vercel.app'
