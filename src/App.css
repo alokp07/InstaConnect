@@ -757,3 +757,15 @@
 .reportModel p{
   font-size: 1.3em;
 }
+.word-break {
+  word-wrap: break-word;
+} 
+
+
+
+/* about us */
+
+.about-Root{
+  background-color: var(--clr-bg);
+  overflow: auto;
+}

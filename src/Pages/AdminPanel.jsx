@@ -15,15 +15,15 @@ function AdminPanel() {
     const navigate = useNavigate()
 
     const [modelContent,setModelContent] = useState({
-        id:"",
+        index:"",
         title:"",
         description:''
     })
 
-    const handleShow = (item) =>{
+    const handleShow = (item,index) =>{
 
         setModelContent({
-            id:item.id,
+            index,
             title:item.title,
             description:item.description
         })
@@ -33,7 +33,7 @@ function AdminPanel() {
 
     const handleClose = () =>{
         setModelContent({
-            id:"",
+            index:"",
             title:"",
             description:""
         })
@@ -52,9 +52,9 @@ function AdminPanel() {
         setBug(result.data)
     }
 
-    const deleteBug = async(id)=>{
+    const deleteBug = async(index)=>{
         const data = {
-            id
+            index
         }
         await removeBugAPI(data)
         getBug()
@@ -109,10 +109,10 @@ function AdminPanel() {
     
                     <>
                         {
-                            bug?.length>0?bug.map(item=>(
+                            bug?.length>0?bug.map((item,index)=>(
                                 <div className='mFriends mt-3 d-flex align-items-center justify-content-between position-relative'>
                                     <h2 className='m-0 ms-4 py-4'>{item.title}</h2>
-                                    <Button className='btn me-4' onClick={(e)=>handleShow(item)}>Details</Button>
+                                    <Button className='btn me-4' onClick={(e)=>handleShow(item,index)}>Details</Button>
                                 </div>
                             ))
                             :
@@ -139,12 +139,12 @@ function AdminPanel() {
                     <p className='ms-2'>{modelContent.title}</p>
                 </div>
                 <div>
-                    <p>
+                    <p className='word-break'>
                         {modelContent.description}
                     </p>
                 </div>
                 <div className='mt-4'>
-                    <Button className='btn me-2 btn-danger' onClick={()=>deleteBug(modelContent.id)}>Delete</Button>
+                    <Button className='btn me-2 btn-danger' onClick={()=>deleteBug(modelContent.index)}>Delete</Button>
                     <Button className='btn' onClick={handleClose}>Close</Button>
                 </div>
             </div>

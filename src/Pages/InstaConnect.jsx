@@ -203,7 +203,7 @@ function InstaConnect() {
                            </div>
                         </div>
 
-                        <div id='chatDisplayDiv' className='h-100 text-light chatDisplayDiv pe-3 pb-1'>
+                        <div id='chatDisplayDiv' className='h-100 text-light chatDisplayDiv pe-3'>
                             {msg?.length>0?msg.map((data)=>(
                                 <div className={data.sent?"msgContainer1":"msgContainer"}>
                                     {data.message}
@@ -211,7 +211,7 @@ function InstaConnect() {
                             ))
                               :""
                             }
-                            <div className='mt-5' ref={markerRef}></div>
+                            <div style={{marginTop:'3.5em'}} ref={markerRef}></div>
                         </div>
                     </div>
                     <div className="chatInputDiv w-100 d-flex align-items-center justify-content-center">

@@ -10,6 +10,7 @@ import AdminPanel from './Pages/AdminPanel';
 import Notification from './Pages/Notification';
 import Feedback from './Pages/Feedback';
 import { useEffect, useState } from 'react';
+import AboutUs from './Pages/AboutUs';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/settings/admin' element={<AdminPanel/>}/>
           <Route path='/settings/notification' element={<Notification/>}/>
           <Route path='/settings/admin/feedback' element={<Feedback/>}/>
+          <Route path='/settings/about' element={<AboutUs/>}/>
         </Routes>:
         <Routes><Route path='/' element={<LandingPage/>}/></Routes>}
     </div>
